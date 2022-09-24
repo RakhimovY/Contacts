@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
+import { StyledEngineProvider } from "@mui/material/styles";
 import store from "./core/index";
 
 const root = ReactDOM.createRoot(
@@ -11,8 +12,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <StyledEngineProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </StyledEngineProvider>
   </Provider>
 );

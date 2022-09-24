@@ -58,7 +58,7 @@
     },
     {
       "id": 9,
-      "name": "Mr Joanikije BabiД‡",
+      "name": "Mr Joanikije BabiР”вЂЎ",
       "email": "joanikije.babic@example.com",
       "phone": "028-5665-140",
       "picture": "https://randomuser.me/api/portraits/men/72.jpg"
@@ -128,23 +128,23 @@
     },
     {
       "id": 19,
-      "name": "Mr Vedat KavaklД",
+      "name": "Mr Vedat KavaklР”",
       "email": "vedat.kavaklioglu@example.com",
       "phone": "(766)-234-6973",
       "picture": "https://randomuser.me/api/portraits/men/89.jpg"
     },
     {
       "id": 20,
-      "name": "Mr BoЕѕo SrejoviД",
+      "name": "Mr BoР•С•o SrejoviР”",
       "email": "bozo.srejovic@example.com",
       "phone": "014-9659-787",
       "picture": "https://randomuser.me/api/portraits/men/28.jpg"
     },
     {
       "id": 21,
-      "name": " фвфв",
-      "email": "фывфв",
-      "phone": " фывфв",
+      "name": " С„РІС„РІ",
+      "email": "С„С‹РІС„РІ",
+      "phone": " С„С‹РІС„РІ",
       "picture": "https://loremflickr.com/640/480/abstract?85898"
     }
   ]

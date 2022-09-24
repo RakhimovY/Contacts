@@ -1,7 +1,9 @@
 import { FC, useMemo, useRef, useState } from "react";
 import { IContact } from "../domain/IContact";
-import ContactItem from "./ContactItem";
+import EachContactItem from "./EachContactItem";
 import ContactAddDialog from "./ContactAddDialog";
+import { useDeleteContactsMutation } from "../core/API";
+import DeleteConfirmation from "./Confirm";
 
 interface Props {
   data: IContact[];
@@ -17,34 +19,52 @@ const ListOfContacts: FC<Props> = ({ data, search }) => {
         item.name.toLowerCase().includes(search.toLowerCase())
     );
   }, [search, data]);
+  const [deleteContact] = useDeleteContactsMutation();
+  const [openModul, setOpenModul] = useState(false);
+  const [openConfirmation, setOpenConfirmation] = useState(false);
 
-  const [open, setOpen] = useState(false);
+
   const currentContactRef = useRef<IContact>();
   const handleEdit = (contact: IContact) => {
     currentContactRef.current = contact;
-    setOpen(true);
+    setOpenModul(true);
   };
-
-  const handleRemove = () => {};
+  const handleRemove = (id: number) => {
+    deleteContact(id).unwrap();
+  };
   const handleSubmit = () => {
     console.log("save");
   };
+  const handleOpenConfirmation = () => {
+    setOpenConfirmation(true);
+  };
+  const handleCloseConfirmation = () => {
+    setOpenConfirmation(false);
+  };
+
+
   return (
     <>
       <ContactAddDialog
-        show={open}
+        show={openModul}
         initialContact={currentContactRef.current}
-        handleCancel={() => setOpen(false)}
+        handleCancel={() => setOpenModul(false)}
         handleOK={handleSubmit}
       />
       {list.map((item) => (
-        <ContactItem
+        <EachContactItem
           key={item.email}
           contact={item}
           handleEdit={handleEdit}
           handleRemove={handleRemove}
+          handleOpenConfirmation={handleOpenConfirmation}
         />
       ))}
+      <DeleteConfirmation
+        open={openConfirmation}
+        handleCloseConfirmation={handleCloseConfirmation}
+
+      />
     </>
   );
 };

@@ -1,5 +1,4 @@
 import { useCallback, useState } from "react";
-import "../css.css";
 import { useGetContactsQuery, useAddContactsMutation } from "../core/API";
 import { IContact } from "../domain/IContact";
 import { faker } from "@faker-js/faker";
@@ -19,10 +18,10 @@ export function ContactsList() {
   const handleSubmit = async (contact: IContact) => {
     const img: string = faker.image.abstract(640, 480, true);
     console.log("contact", contact);
-    // await addNewContact({
-    //   ...contact,
-    //   picture: img,
-    // }).unwrap();
+    await addNewContact({
+      ...contact,
+      picture: img,
+    }).unwrap();
   };
 
   const [show, setShow] = useState(false);

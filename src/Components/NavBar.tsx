@@ -23,13 +23,8 @@ export function NavBar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item active">
-                <a className="nav-link" href="/">
+                <a className="nav-link" href="/contacts">
                   Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/ContactsList">
-                  Contacts list
                 </a>
               </li>
               <li className="nav-item ">
