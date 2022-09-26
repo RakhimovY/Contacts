@@ -10,26 +10,16 @@ import { IContact } from "../domain/IContact";
 
 interface Props {
   open: boolean;
-  handleCloseConfirmation: () => void;
-  initialContact?: IContact;
-  handleRemove: (contact: IContact) => void;
+  onRemove: () => void;
+  onCancel: () => void;
 }
 
-const DeleteConfirmation: FC<Props> = ({
-  open,
-  handleCloseConfirmation,
-  initialContact,
-  handleRemove,
-}) => {
-  const removeContact = () => {
-    if (initialContact) handleRemove(initialContact);
-  };
-
+const DeleteConfirmation: FC<Props> = ({ open, onRemove, onCancel }) => {
   return (
     <div>
       <Dialog
         open={open}
-        onClose={handleCloseConfirmation}
+        onClose={onCancel}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -40,11 +30,8 @@ const DeleteConfirmation: FC<Props> = ({
           <DialogContentText id="alert-dialog-description"></DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseConfirmation}>No</Button>
-          <Button
-            onClick={() => (handleCloseConfirmation(), removeContact())}
-            autoFocus
-          >
+          <Button onClick={onCancel}>No</Button>
+          <Button onClick={onRemove} autoFocus>
             Yes
           </Button>
         </DialogActions>

@@ -6,15 +6,9 @@ import { useEffect } from "react";
 interface Props {
   contact: IContact;
   handleEdit: (contact: IContact) => void;
-  handleOpenConfirmation: () => void;
-  handleTakecontact: (contact: IContact) => void;
+  handleRemove: (contact: IContact) => void;
 }
-const EachContactItem: FC<Props> = ({
-  contact,
-  handleEdit,
-  handleOpenConfirmation,
-  handleTakecontact,
-}) => {
+const EachContactItem: FC<Props> = ({ contact, handleEdit, handleRemove }) => {
   return (
     <>
       <figure className="bg-white h-92 rounded-lg shadow-md p-7 mt-5  text-dark text-center">
@@ -32,13 +26,7 @@ const EachContactItem: FC<Props> = ({
 
           <div className="Click">
             <button onClick={() => handleEdit(contact)}>Edit</button>
-            <Button
-              onClick={() => (
-                handleOpenConfirmation(), handleTakecontact(contact)
-              )}
-            >
-              Delete
-            </Button>
+            <Button onClick={() => handleRemove(contact)}>Delete</Button>
           </div>
         </figcaption>
       </figure>

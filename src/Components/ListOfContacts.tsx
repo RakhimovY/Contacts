@@ -4,7 +4,6 @@ import EachContactItem from "./EachContactItem";
 import ContactAddDialog from "./ContactAddDialog";
 import { useDeleteContactsMutation } from "../core/API";
 import DeleteConfirmation from "./Confirm";
-import { current } from "@reduxjs/toolkit";
 
 interface Props {
   data: IContact[];
@@ -30,26 +29,22 @@ const ListOfContacts: FC<Props> = ({ data, search }) => {
     setOpenModul(true);
   };
 
-  const handleTakecontact = (contact: IContact) => {
-    currentContactRef.current = contact;
-    setOpenConfirmation(true);
-  };
   console.log(currentContactRef.current);
 
-  const handleRemove = (contact: IContact) => {
-    currentContactRef.current = contact;
-    const id = contact.id;
+  const handleRemove = () => {
+    const id = currentContactRef.current?.id;
+    console.log("delete", currentContactRef.current, id);
     deleteContact(id).unwrap();
+
+    closeConfirmDialog();
   };
   const handleSubmit = () => {
     console.log("save");
   };
-
-  const handleOpenConfirmation = () => {
+  const closeConfirmDialog = () => setOpenConfirmation(false);
+  const onRemove = (contact: IContact) => {
+    currentContactRef.current = contact;
     setOpenConfirmation(true);
-  };
-  const handleCloseConfirmation = () => {
-    setOpenConfirmation(false);
   };
 
   return (
@@ -65,15 +60,13 @@ const ListOfContacts: FC<Props> = ({ data, search }) => {
           key={item.email}
           contact={item}
           handleEdit={handleEdit}
-          handleOpenConfirmation={handleOpenConfirmation}
-          handleTakecontact={handleTakecontact}
+          handleRemove={onRemove}
         />
       ))}
       <DeleteConfirmation
         open={openConfirmation}
-        handleCloseConfirmation={handleCloseConfirmation}
-        initialContact={currentContactRef.current}
-        handleRemove={handleRemove}
+        onRemove={handleRemove}
+        onCancel={closeConfirmDialog}
       />
     </>
   );

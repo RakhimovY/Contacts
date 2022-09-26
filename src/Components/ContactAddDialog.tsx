@@ -47,9 +47,7 @@ const ContactAddDialog: FC<Props> = ({
   return (
     <Modal show={show}>
       <Modal.Header closeButton>
-        <Modal.Title>
-           Add new contact
-        </Modal.Title>
+        <Modal.Title>Add new contact</Modal.Title>
       </Modal.Header>
 
       <Modal.Body>

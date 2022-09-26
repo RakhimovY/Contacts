@@ -12,7 +12,7 @@ export function ContactsList() {
     []
   );
 
-  const { data = [], isError, isLoading } = useGetContactsQuery(100);
+  const { data = [] } = useGetContactsQuery(100);
   const [addNewContact] = useAddContactsMutation();
 
   const handleSubmit = async (contact: IContact) => {
