@@ -38,9 +38,14 @@ export function ContactsList() {
           value={search}
           onChange={handleSearchChange}
         />
-        <button className="ml-auto" onClick={handleAddContact}>
-          Add new contact
-        </button>
+        <div className="Click">
+          <button
+            className="ml-auto border border-white"
+            onClick={handleAddContact}
+          >
+            Add new contact
+          </button>
+        </div>
       </div>
 
       <ContactAddDialog

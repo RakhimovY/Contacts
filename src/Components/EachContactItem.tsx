@@ -7,13 +7,13 @@ interface Props {
   contact: IContact;
   handleEdit: (contact: IContact) => void;
   handleOpenConfirmation: () => void;
-  handleRemove: (id: number) => void;
+  handleTakecontact: (contact: IContact) => void;
 }
 const EachContactItem: FC<Props> = ({
   contact,
   handleEdit,
   handleOpenConfirmation,
-
+  handleTakecontact,
 }) => {
   return (
     <>
@@ -32,7 +32,13 @@ const EachContactItem: FC<Props> = ({
 
           <div className="Click">
             <button onClick={() => handleEdit(contact)}>Edit</button>
-            <Button onClick={handleOpenConfirmation}>Delete</Button>
+            <Button
+              onClick={() => (
+                handleOpenConfirmation(), handleTakecontact(contact)
+              )}
+            >
+              Delete
+            </Button>
           </div>
         </figcaption>
       </figure>
