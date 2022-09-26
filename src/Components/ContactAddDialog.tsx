@@ -26,7 +26,6 @@ const ContactAddDialog: FC<Props> = ({
   const [state, setState] = useState<IContact>(
     initialContact ?? defaultContact
   );
-  console.log(state);
   useEffect(() => {
     if (initialContact) setState(initialContact);
   }, [initialContact]);
@@ -43,6 +42,7 @@ const ContactAddDialog: FC<Props> = ({
 
   const handleSubmit = () => {
     handleOK(state);
+    handleCancel();
   };
   return (
     <Modal show={show}>

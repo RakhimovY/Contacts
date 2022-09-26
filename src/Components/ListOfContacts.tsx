@@ -2,7 +2,10 @@ import { FC, useMemo, useRef, useState } from "react";
 import { IContact } from "../domain/IContact";
 import EachContactItem from "./EachContactItem";
 import ContactAddDialog from "./ContactAddDialog";
-import { useDeleteContactsMutation } from "../core/API";
+import {
+  useDeleteContactsMutation,
+  useEditContactsMutation,
+} from "../core/API";
 import DeleteConfirmation from "./Confirm";
 
 interface Props {
@@ -20,6 +23,7 @@ const ListOfContacts: FC<Props> = ({ data, search }) => {
     );
   }, [search, data]);
   const [deleteContact] = useDeleteContactsMutation();
+  const [editContacts] = useEditContactsMutation();
   const [openModul, setOpenModul] = useState(false);
   const [openConfirmation, setOpenConfirmation] = useState(false);
 
@@ -29,17 +33,17 @@ const ListOfContacts: FC<Props> = ({ data, search }) => {
     setOpenModul(true);
   };
 
-  console.log(currentContactRef.current);
-
   const handleRemove = () => {
     const id = currentContactRef.current?.id;
     console.log("delete", currentContactRef.current, id);
     deleteContact(id).unwrap();
-
-    closeConfirmDialog();
+    setOpenConfirmation(false);
   };
-  const handleSubmit = () => {
-    console.log("save");
+
+  const handleSubmit = (contact: IContact) => {
+    currentContactRef.current = contact;
+    editContacts(contact).unwrap();
+    setOpenModul(false);
   };
   const closeConfirmDialog = () => setOpenConfirmation(false);
   const onRemove = (contact: IContact) => {
