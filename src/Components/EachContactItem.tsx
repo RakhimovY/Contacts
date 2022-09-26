@@ -12,7 +12,7 @@ const EachContactItem: FC<Props> = ({ contact, handleEdit, handleRemove }) => {
     <>
       <figure className="bg-white h-92 rounded-lg shadow-md p-7 mt-5  text-dark text-center">
         <img
-          className="w-32 h-32 rounded-full mx-auto"
+          className="w-45 h-45 rounded-full mx-auto"
           src={contact.picture}
           alt="userPhoto"
         />
