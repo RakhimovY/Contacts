@@ -47,31 +47,41 @@ const ContactAddDialog: FC<Props> = ({
   return (
     <Modal show={show}>
       <Modal.Header>
-        <Modal.Title>Add new contact</Modal.Title>
+        <Modal.Title>
+          {initialContact ? "Edit Contact" : "Add new contact"}
+        </Modal.Title>
       </Modal.Header>
 
       <Modal.Body>
         <form onSubmit={handleSubmit}>
+          <label htmlFor="Name">Name: </label>
           <input
-            className="rounded-md text-dark mx-3 p-2 my-5 w-45 "
+            className="rounded-md text-dark p-2 mx-auto mx-auto w-45 outline  "
             type="text"
             placeholder="Name"
             value={state.name}
             onChange={handleNameChange}
+            id="Name"
           />
+          <hr />
+          <label htmlFor="Email">Email: </label>
           <input
-            className="rounded-md text-dark mx-3 p-2 my-5 w-45 "
+            className="rounded-md text-dark m-2 p-2  w-45 outline"
             type="email"
             placeholder="Email"
             value={state.email}
             onChange={handleEmailChange}
+            id="Email"
           />
+          <hr />
+          <label htmlFor="Phone">Phone: </label>
           <input
-            className="rounded-md text-dark mx-3 p-2 my-5 w-45 "
+            className="rounded-md text-dark mx-auto my-auto p-2 w-45 outline"
             type="tel"
             placeholder="Phone"
             value={state.phone}
             onChange={handlePhoneChange}
+            id="Phone"
           />
         </form>
       </Modal.Body>
