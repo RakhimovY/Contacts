@@ -132,6 +132,20 @@
       "email": "vedat.kavaklioglu@example.com",
       "phone": "(766)-234-6973",
       "picture": "https://randomuser.me/api/portraits/men/89.jpg"
+    },
+    {
+      "id": 20,
+      "name": "wer",
+      "email": "wrwerwerwr",
+      "phone": "werwr",
+      "picture": "https://loremflickr.com/640/480/abstract?26809"
+    },
+    {
+      "id": 21,
+      "name": ",mm,",
+      "email": "uybiuybh",
+      "phone": "uhuihiuh",
+      "picture": "https://loremflickr.com/640/480/abstract?70432"
     }
   ]
 }

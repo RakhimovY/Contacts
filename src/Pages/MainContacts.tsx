@@ -32,7 +32,7 @@ export function ContactsList() {
     <div className="container mx-auto max-w-[760px] pt-5 text-light ">
       <div className="d-flex">
         <input
-          className=" rounded-md p-2 text-dark "
+          className=" rounded-md px-2 text-dark "
           type="text"
           placeholder="Search..."
           value={search}

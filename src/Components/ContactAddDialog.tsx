@@ -45,44 +45,71 @@ const ContactAddDialog: FC<Props> = ({
     handleCancel();
   };
   return (
-    <Modal show={show}>
-      <Modal.Header>
+    <Modal show={show} onHide={handleCancel}>
+      <Modal.Header closeButton>
         <Modal.Title>
-          {initialContact ? "Edit Contact" : "Add new contact"}
+          <div className="item-center">
+            {initialContact ? "Edit Contact" : "Add new contact"}
+          </div>
         </Modal.Title>
       </Modal.Header>
 
       <Modal.Body>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="Name">Name: </label>
-          <input
-            className="rounded-md text-dark p-2 mx-auto mx-auto w-45 outline  "
-            type="text"
-            placeholder="Name"
-            value={state.name}
-            onChange={handleNameChange}
-            id="Name"
-          />
+          <div className="input-group mb-3">
+            <div className="input-group-prepend mr-1">
+              <span className="input-group-text" id="Name">
+                Name
+              </span>
+            </div>
+            <input
+              className="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="Name"
+              type="text"
+              value={state.name}
+              onChange={handleNameChange}
+              id="Name"
+            />
+          </div>
+
           <hr />
-          <label htmlFor="Email">Email: </label>
-          <input
-            className="rounded-md text-dark m-2 p-2  w-45 outline"
-            type="email"
-            placeholder="Email"
-            value={state.email}
-            onChange={handleEmailChange}
-            id="Email"
-          />
+
+          <div className="input-group mb-3">
+            <div className="input-group-prepend mr-1">
+              <span className="input-group-text" id="Email">
+                Email
+              </span>
+            </div>
+            <input
+              className="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="Email"
+              type="email"
+              value={state.email}
+              onChange={handleEmailChange}
+              id="Email"
+            />
+          </div>
+
           <hr />
-          <label htmlFor="Phone">Phone: </label>
-          <input
-            className="rounded-md text-dark mx-auto my-auto p-2 w-45 outline"
-            type="tel"
-            placeholder="Phone"
-            value={state.phone}
-            onChange={handlePhoneChange}
-            id="Phone"
-          />
+
+          <div className="input-group mb-3">
+            <div className="input-group-prepend mr-1">
+              <span className="input-group-text" id="Phone">
+                Phone
+              </span>
+            </div>
+            <input
+              className="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="Phone"
+              type="tel"
+              value={state.phone}
+              onChange={handlePhoneChange}
+              id="Phone"
+            />
+          </div>
         </form>
       </Modal.Body>
 
