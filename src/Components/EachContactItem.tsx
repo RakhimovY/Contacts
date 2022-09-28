@@ -10,7 +10,7 @@ interface Props {
 const EachContactItem: FC<Props> = ({ contact, handleEdit, handleRemove }) => {
   return (
     <>
-      <figure className="bg-white h-92 rounded-lg shadow-md p-7 mt-5  text-dark text-center">
+      <figure className="bg-white rounded-lg shadow-md p-7 mt-5  text-dark text-center">
         <img
           className="w-45 h-45 rounded-full mx-auto"
           src={contact.picture}

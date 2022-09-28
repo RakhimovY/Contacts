@@ -61,7 +61,7 @@ const ListOfContacts: FC<Props> = ({ data, search }) => {
       />
       {list.map((item) => (
         <EachContactItem
-          key={item.email}
+          key={item.id}
           contact={item}
           handleEdit={handleEdit}
           handleRemove={onRemove}

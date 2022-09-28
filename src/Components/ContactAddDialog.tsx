@@ -39,6 +39,18 @@ const ContactAddDialog: FC<Props> = ({
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setState((prevState) => ({ ...prevState, phone: e.target.value }));
   };
+  // const handlePictureChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const reader = new FileReader();
+  //   reader.onload = () => {
+  //     if (reader.readyState === 2) {
+  //       if (reader.result)
+  //         setState((prevState) => ({
+  //           ...prevState,
+  //           picture: reader.result.toString(),
+  //         }));
+  //     }
+  //   };
+  // };
 
   const handleSubmit = () => {
     handleOK(state);
@@ -108,6 +120,24 @@ const ContactAddDialog: FC<Props> = ({
               value={state.phone}
               onChange={handlePhoneChange}
               id="Phone"
+            />
+          </div>
+
+          <hr />
+
+          <div className="input-group mb-3">
+            <div className="input-group-prepend mr-1">
+              <span className="input-group-file" id="Picture"></span>
+            </div>
+            <input
+              className="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="file"
+              type="file"
+              // onChange={handlePictureChange}
+              id="Picture"
+              multiple
+              accept="image/*"
             />
           </div>
         </form>
