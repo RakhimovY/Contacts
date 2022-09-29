@@ -3,6 +3,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { Auth } from "../Pages/Auth";
 import { setUser } from "../Redux/Slice/userSlice";
 import { useAppDispatch } from "../Redux/CastomHooks";
+
 const SignUp = () => {
   const dispatch = useAppDispatch();
   const push = useNavigate();

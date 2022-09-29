@@ -11,34 +11,25 @@ const Auth: FC<FormProps> = ({ title, handleClick }) => {
 
   return (
     <div className="login-box">
-      <h2>Sing In</h2>
+      <h2>{title}</h2>
       <form>
         <div className="user-box">
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="email"
-          />
-          <label>Username</label>
+          <input type="email" onChange={(e) => setEmail(e.target.value)} />
+          <label>Email</label>
         </div>
 
         <div className="user-box">
-          <input
-            type="password"
-            value={pass}
-            onChange={(e) => setPass(e.target.value)}
-            placeholder="password"
-          />
+          <input type="password" onChange={(e) => setPass(e.target.value)} />
           <label>Password</label>
         </div>
-        <a onClick={() => handleClick(email, pass)}>
+        <button onClick={() => handleClick(email, pass)}>
           <span></span>
           <span></span>
           <span></span>
           <span></span>
-          {title}
-        </a>
+
+          <p className="pb-1 mb-1">{title}</p>
+        </button>
       </form>
     </div>
   );

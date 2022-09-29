@@ -4,9 +4,9 @@ import "./App.css";
 import "./css.css";
 import { Route, Routes } from "react-router-dom";
 import { Home } from "./Pages/Home";
-import { SingIn } from "./Pages/SingIn";
+import { SingIn } from "./UserPage/SingInLogic";
 import { NavBar } from "./ContactsComponents/NavBar";
-import { SingUp } from "./Pages/SingUp";
+import { SignUp } from "./UserPage/SingUpLogic";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/contacts" element={<Home />} />
           <Route path="/SingIn" element={<SingIn />} />
-          <Route path="/SingUp" element={<SingUp />} />
+          <Route path="/SingUp" element={<SignUp />} />
         </Routes>
       </div>
     </>
