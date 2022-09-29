@@ -1,11 +1,10 @@
 import { useNavigate } from "react-router-dom";
-
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { Form } from "./form";
+import { Auth } from "../Pages/Auth";
 import { setUser } from "../Redux/Slice/userSlice";
 import { useAppDispatch } from "../Redux/CastomHooks";
 
-const Login = () => {
+const SingIn = () => {
   const dispatch = useAppDispatch();
   const push = useNavigate();
 
@@ -26,7 +25,7 @@ const Login = () => {
       .catch(() => alert("Invalid user!"));
   };
 
-  return <Form title="sign in" handleClick={handleLogin} />;
+  return <Auth title="Sign In" handleClick={handleLogin} />;
 };
 
-export { Login };
+export { SingIn };

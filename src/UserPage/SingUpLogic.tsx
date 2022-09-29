@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { Form } from "./form";
+import { Auth } from "../Pages/Auth";
 import { setUser } from "../Redux/Slice/userSlice";
 import { useAppDispatch } from "../Redux/CastomHooks";
 const SignUp = () => {
@@ -21,10 +21,10 @@ const SignUp = () => {
         );
         push("/");
       })
-      .catch(console.error);
+      .catch(() => alert("Error"));
   };
 
-  return <Form title="register" handleClick={handleRegister} />;
+  return <Auth title="Sing Up" handleClick={handleRegister} />;
 };
 
 export { SignUp };

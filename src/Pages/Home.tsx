@@ -1,6 +1,6 @@
 import React from "react";
-import { MainContacts } from "./MainContacts";
-import { RedirectFunction } from "react-router-dom";
+import { MainContacts } from "../ContactsComponents/MainContacts";
+
 
 export const Home: React.FC = () => {
   return (

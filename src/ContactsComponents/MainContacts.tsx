@@ -1,8 +1,8 @@
 import { useCallback, useState } from "react";
 import { useGetContactsQuery, useAddContactsMutation } from "../core/API";
 import { IContact } from "../domain/IContact";
-import ListOfContacts from "../ContactsComponents/ListOfContacts";
-import ContactAddDialog from "../ContactsComponents/ContactAddDialog";
+import ListOfContacts from "./ListOfContacts";
+import ContactAddDialog from "./ContactAddDialog";
 
 export function MainContacts() {
   const [search, setSearch] = useState<string>("");
