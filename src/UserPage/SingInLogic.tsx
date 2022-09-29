@@ -3,6 +3,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Auth } from "../Pages/Auth";
 import { setUser } from "../Redux/Slice/userSlice";
 import { useAppDispatch } from "../Redux/CastomHooks";
+import { Link } from "react-router-dom";
 
 const SingIn = () => {
   const dispatch = useAppDispatch();
@@ -20,12 +21,23 @@ const SingIn = () => {
             token: user.refreshToken,
           })
         );
-        push("/");
+        push("/contacts");
       })
-      .catch(() => alert("Invalid user!"));
+      .catch((e: Error) => alert(e.message));
   };
 
-  return <Auth title="Sign In" handleClick={handleLogin} />;
+  return (
+    <>
+      <Auth title="Sign In" handleClick={handleLogin} />
+      <div className="underLoginBox text-light">
+        Don’t have an account?{" "}
+        <Link className="text-light" to="/SingUp">
+          {" "}
+          Sing Up now{" "}
+        </Link>
+      </div>
+    </>
+  );
 };
 
 export { SingIn };

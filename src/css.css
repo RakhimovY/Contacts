@@ -40,7 +40,7 @@ body {
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
-  color: #fff;
+  color: #03e9f4;
   margin-bottom: 30px;
   border: none;
   border-bottom: 1px solid #fff;
@@ -176,6 +176,8 @@ body {
     bottom: 100%;
   }
 }
+
+
 
 .carousel-item {
   height: 100vh;

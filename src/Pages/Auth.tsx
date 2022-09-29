@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { Link } from "react-router-dom";
 
 interface FormProps {
   title: string;
@@ -9,18 +10,31 @@ const Auth: FC<FormProps> = ({ title, handleClick }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
+  const handle = (e: any) => {
+    e.preventDefault();
+    handleClick(email, pass);
+  };
+
   return (
     <div className="login-box">
       <h2>{title}</h2>
-      <form>
+      <form onSubmit={handle}>
         <div className="user-box">
-          <input type="email" onChange={(e) => setEmail(e.target.value)} />
-          <label>Email</label>
+          <input
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
+          {!email && <label>Email</label>}
         </div>
 
         <div className="user-box">
-          <input type="password" onChange={(e) => setPass(e.target.value)} />
-          <label>Password</label>
+          <input
+            type="password"
+            onChange={(e) => setPass(e.target.value)}
+            value={pass}
+          />
+          {!pass && <label>Password</label>}
         </div>
         <button onClick={() => handleClick(email, pass)}>
           <span></span>

@@ -3,6 +3,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { Auth } from "../Pages/Auth";
 import { setUser } from "../Redux/Slice/userSlice";
 import { useAppDispatch } from "../Redux/CastomHooks";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const dispatch = useAppDispatch();
@@ -20,12 +21,23 @@ const SignUp = () => {
             token: user.refreshToken,
           })
         );
-        push("/");
+        push("/contacts");
       })
-      .catch(() => alert("Error"));
+      .catch((e: Error) => alert(e.message));
   };
 
-  return <Auth title="Sing Up" handleClick={handleRegister} />;
+  return (
+    <>
+      <Auth title="Sing Up" handleClick={handleRegister} />
+      <div className="text-light">
+        Already have an account?{" "}
+        <Link to="/SingIn" className="text-light">
+          {" "}
+          Sing In{" "}
+        </Link>
+      </div>
+    </>
+  );
 };
 
 export { SignUp };
