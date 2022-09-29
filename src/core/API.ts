@@ -19,16 +19,16 @@ export const contactsApi = createApi({
 
     addContacts: builder.mutation({
       query: (body) => ({
-        url: "contacts",
+        url: "/contacts",
         method: "POST",
         body,
       }),
-      invalidatesTags: ["IContact"],
+      invalidatesTags: [{ type: "IContact", id: "LIST" }],
     }),
 
     editContacts: builder.mutation<IContact, IContact>({
       query: (body) => ({
-        url: `contacts/${body.id}`,
+        url: `/contacts/${body.id}`,
         method: "PUT",
         body,
       }),
@@ -37,7 +37,7 @@ export const contactsApi = createApi({
 
     deleteContacts: builder.mutation({
       query: (id?) => ({
-        url: `contacts/${id}`,
+        url: `/contacts/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: [{ type: "IContact", id: "LIST" }],

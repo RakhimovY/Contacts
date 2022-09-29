@@ -3,9 +3,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import "./css.css";
 import { Route, Routes } from "react-router-dom";
-import { MainPage } from "./Pages/MainPage";
-import { AuthPage } from "./Pages/AuthPage";
-import { NavBar } from "./Components/NavBar";
+import { Home } from "./Pages/Home";
+import { SingIn } from "./Pages/SingIn";
+import { NavBar } from "./ContactsComponents/NavBar";
+import { SingUp } from "./Pages/SingUp";
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
       <NavBar />
       <div>
         <Routes>
-          <Route path="/contacts" element={<MainPage />} />
-          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/contacts" element={<Home />} />
+          <Route path="/SingIn" element={<SingIn />} />
+          <Route path="/SingUp" element={<SingUp />} />
         </Routes>
       </div>
     </>

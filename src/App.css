@@ -41,12 +41,10 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
-  
 }
 
 .Click button {
   background: #16072b;
-  ;
   outline: none;
   border: none;
   color: #fff;
@@ -58,5 +56,27 @@
 }
 
 .Click button:hover {
+  background: #6616d0;
+}
+
+.Click-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.Click-btn button {
+  background: #16072b;
+  outline: none;
+  border: none;
+  color: #fff;
+  padding: 8px 26px;
+  border-radius: 16px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.Click-btn button:hover {
   background: #6616d0;
 }

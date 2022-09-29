@@ -1,10 +1,10 @@
 import { useCallback, useState } from "react";
 import { useGetContactsQuery, useAddContactsMutation } from "../core/API";
 import { IContact } from "../domain/IContact";
-import ListOfContacts from "../Components/ListOfContacts";
-import ContactAddDialog from "../Components/ContactAddDialog";
+import ListOfContacts from "../ContactsComponents/ListOfContacts";
+import ContactAddDialog from "../ContactsComponents/ContactAddDialog";
 
-export function ContactsList() {
+export function MainContacts() {
   const [search, setSearch] = useState<string>("");
   const handleSearchChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value),
@@ -16,9 +16,7 @@ export function ContactsList() {
 
   const handleSubmit = async (contact: IContact) => {
     console.log("contact", contact);
-    await addNewContact({
-      contact,
-    }).unwrap();
+    await addNewContact(contact).unwrap();
   };
 
   const [show, setShow] = useState(false);
@@ -35,14 +33,13 @@ export function ContactsList() {
           value={search}
           onChange={handleSearchChange}
         />
-        <div className="Click">
-          <button
-            className="ml-auto border border-white"
-            onClick={handleAddContact}
-          >
-            Add new contact
-          </button>
-        </div>
+
+        <button
+          className="ml-auto border border-white"
+          onClick={handleAddContact}
+        >
+          Add new contact
+        </button>
       </div>
 
       <ContactAddDialog

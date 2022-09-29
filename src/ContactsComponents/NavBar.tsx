@@ -5,7 +5,7 @@ export function NavBar() {
     <>
       <nav className="navbar navbar-expand-lg navbar-light fixed-top bg navbar-custom-bg-color ">
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="/contacts">
             YR
           </a>
           <button
@@ -28,7 +28,7 @@ export function NavBar() {
                 </a>
               </li>
               <li className="nav-item ">
-                <a className="nav-link" href="/auth">
+                <a className="nav-link" href="/SingIn">
                   Sing in
                 </a>
               </li>

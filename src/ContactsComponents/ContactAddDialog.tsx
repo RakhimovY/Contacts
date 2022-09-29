@@ -39,18 +39,15 @@ const ContactAddDialog: FC<Props> = ({
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setState((prevState) => ({ ...prevState, phone: e.target.value }));
   };
-  // const handlePictureChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const reader = new FileReader();
-  //   reader.onload = () => {
-  //     if (reader.readyState === 2) {
-  //       if (reader.result)
-  //         setState((prevState) => ({
-  //           ...prevState,
-  //           picture: reader.result.toString(),
-  //         }));
-  //     }
-  //   };
+  // const handlePictureChange = (files: FileList | null) => {
+  //   const inputRef = useRef<HTMLInputElement | null>(null);
   // };
+  const handlePictureChange = () => {
+    setState((prevState) => ({
+      ...prevState,
+      picture: "xsgames.co/randomusers/avatar.php?g=female",
+    }));
+  };
 
   const handleSubmit = () => {
     handleOK(state);
@@ -58,11 +55,9 @@ const ContactAddDialog: FC<Props> = ({
   };
   return (
     <Modal show={show} onHide={handleCancel}>
-      <Modal.Header closeButton>
+      <Modal.Header>
         <Modal.Title>
-          <div className="item-center">
-            {initialContact ? "Edit Contact" : "Add new contact"}
-          </div>
+          {initialContact ? "Edit Contact" : "Add new contact"}
         </Modal.Title>
       </Modal.Header>
 
@@ -134,7 +129,7 @@ const ContactAddDialog: FC<Props> = ({
               aria-label="Sizing example input"
               aria-describedby="file"
               type="file"
-              // onChange={handlePictureChange}
+              onChange={handlePictureChange}
               id="Picture"
               multiple
               accept="image/*"
@@ -144,12 +139,14 @@ const ContactAddDialog: FC<Props> = ({
       </Modal.Body>
 
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleCancel}>
-          Close
-        </Button>
-        <Button variant="primary" onClick={handleSubmit}>
-          Save
-        </Button>
+        <div className="Click-btn ">
+          <Button variant="secondary" onClick={handleCancel}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleSubmit}>
+            Save
+          </Button>
+        </div>
       </Modal.Footer>
     </Modal>
   );

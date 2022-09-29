@@ -1,7 +1,7 @@
-export function AuthPage() {
+export function SingIn() {
   return (
     <div className="login-box">
-      <h2>Login</h2>
+      <h2>Sing In</h2>
       <form>
         <div className="user-box">
           <input type="text" />
@@ -12,12 +12,12 @@ export function AuthPage() {
           <input type="password" />
           <label>Password</label>
         </div>
-        <a href="/">
+        <a href="/SingUp">
           <span></span>
           <span></span>
           <span></span>
           <span></span>
-          Submit
+          Sing in
         </a>
       </form>
     </div>
