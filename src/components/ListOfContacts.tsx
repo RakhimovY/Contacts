@@ -5,7 +5,7 @@ import ContactAddDialog from "./ContactAddDialog";
 import {
   useDeleteContactsMutation,
   useEditContactsMutation,
-} from "../core/API";
+} from "../store/contactsApi";
 import DeleteConfirmation from "./Confirm";
 
 interface Props {

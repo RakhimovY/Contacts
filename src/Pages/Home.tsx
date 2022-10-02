@@ -1,13 +1,11 @@
 import React from "react";
-import { MainContacts } from "../ContactsComponents/MainContacts";
-import { useAuth } from "../Redux/CastomHooks";
+import { MainContacts } from "../components/MainContacts";
 import { Route, Routes } from "react-router-dom";
-import { SingIn } from "../UserPage/SingInLogic";
-import { useGetUserQuery } from "../core/API";
+import { SignIn } from "./SignIn";
+import { useAuth } from "../store/useHooks";
 
 export const Home: React.FC = () => {
-  const { isAuth } = useAuth();
-  // const isAuth = true;
+   const isAuth = useAuth();
   console.log(isAuth);
 
   //   return (
@@ -24,7 +22,7 @@ export const Home: React.FC = () => {
   ) : (
     <div>
       <Routes>
-        <Route path="/SingIn" element={<SingIn />} />
+        <Route path="/signin" element={<SignIn />} />
       </Routes>
     </div>
   );

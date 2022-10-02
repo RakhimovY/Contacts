@@ -143,11 +143,8 @@
   ],
   "user": [
     {
-      "id": 0,
       "email": "erke_1999-23@mail.ru",
-      "uid": "1eRcnuEn8aS97F24uiC5SiEoGuo2",
-      "token": "AOEOulbwN-XKROl4spFDHAL-3RtaB_5nYhVlHLNe8HMTzGhET5OXJstz12Jm6XsJ8hqo0YoyJ0YhdAh98DvhlYU9XRm37d0pCW2to5pMSvdCHp9nOSlnejXlii0qVEfxJBfTrAys0vlzreoPJ6--Z5eg-LNa5c4zrxsuGTj7UPp4Uc2MgiNj-PK6b-Ehz40oTUeMlGTHIxFBrLLQ95IDD56fdhZ-b1VfqEaB7vCaRJ-o801MYme3EiM",
-      "isAuth": true
+      "token": "AOEOulbwN-XKROl4spFDHAL-3RtaB_5nYhVlHLNe8HMTzGhET5OXJstz12Jm6XsJ8hqo0YoyJ0YhdAh98DvhlYU9XRm37d0pCW2to5pMSvdCHp9nOSlnejXlii0qVEfxJBfTrAys0vlzreoPJ6--Z5eg-LNa5c4zrxsuGTj7UPp4Uc2MgiNj-PK6b-Ehz40oTUeMlGTHIxFBrLLQ95IDD56fdhZ-b1VfqEaB7vCaRJ-o801MYme3EiM"
     }
   ]
 }

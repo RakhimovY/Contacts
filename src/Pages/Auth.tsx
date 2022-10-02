@@ -1,6 +1,5 @@
 import { FC, useState } from "react";
 import { Link } from "react-router-dom";
-import { useGetUserQuery } from "../core/API";
 
 interface FormProps {
   title: string;
@@ -13,8 +12,7 @@ const Auth: FC<FormProps> = ({ title, handleClick, ask, link }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
-  const { data } = useGetUserQuery(5);
-
+  const data = []
   const handle = (e: any) => {
     e.preventDefault();
     handleClick(email, pass);

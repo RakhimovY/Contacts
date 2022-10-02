@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { StyledEngineProvider } from "@mui/material/styles";
 import "./firebase";
-import store from "./core/index";
+import {store} from "./store";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

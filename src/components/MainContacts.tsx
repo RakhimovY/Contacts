@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { useGetContactsQuery, useAddContactsMutation } from "../core/API";
+import { useGetContactsQuery, useAddContactsMutation } from "../store/contactsApi";
 import { IContact } from "../domain/IContact";
 import ListOfContacts from "./ListOfContacts";
 import ContactAddDialog from "./ContactAddDialog";

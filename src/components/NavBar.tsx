@@ -28,8 +28,8 @@ export function NavBar() {
                 </a>
               </li>
               <li className="nav-item ">
-                <a className="nav-link" href="/SingIn">
-                  Sing in
+                <a className="nav-link" href="/signin">
+                  Sign in
                 </a>
               </li>
             </ul>
