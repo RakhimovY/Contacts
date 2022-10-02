@@ -28,14 +28,12 @@ const SignUp = () => {
 
   return (
     <>
-      <Auth title="Sing Up" handleClick={handleRegister} />
-      <div className="text-light">
-        Already have an account?{" "}
-        <Link to="/SingIn" className="text-light">
-          {" "}
-          Sing In{" "}
-        </Link>
-      </div>
+      <Auth
+        title="Sing Up"
+        handleClick={handleRegister}
+        ask="Already have an account?"
+        link="SingIn"
+      />
     </>
   );
 };

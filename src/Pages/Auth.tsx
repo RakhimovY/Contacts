@@ -1,14 +1,19 @@
 import { FC, useState } from "react";
 import { Link } from "react-router-dom";
+import { useGetUserQuery } from "../core/API";
 
 interface FormProps {
   title: string;
   handleClick: (email: string, pass: string) => void;
+  ask: string;
+  link: string;
 }
 
-const Auth: FC<FormProps> = ({ title, handleClick }) => {
+const Auth: FC<FormProps> = ({ title, handleClick, ask, link }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+
+  const { data } = useGetUserQuery(5);
 
   const handle = (e: any) => {
     e.preventDefault();
@@ -44,6 +49,14 @@ const Auth: FC<FormProps> = ({ title, handleClick }) => {
 
           <p className="pb-1 mb-1">{title}</p>
         </button>
+
+        <div className="text-light pt-5 text-center">
+          {ask}{" "}
+          <Link className="text-light" to={`/${link}`}>
+            {" "}
+            {link}{" "}
+          </Link>
+        </div>
       </form>
     </div>
   );

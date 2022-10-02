@@ -7,11 +7,13 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 export function useAuth() {
   const { data = [] } = useGetUserQuery(5);
-  const { email, token, id, isAuth } = data[0];
-  return {
-    isAuth,
-    email,
-    token,
-    id,
-  };
+  if (data[0]) {
+    const { email, token, uid, isAuth } = data[0];
+    return {
+      isAuth,
+      email,
+      token,
+      uid,
+    };
+  }
 }

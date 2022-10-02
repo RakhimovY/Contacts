@@ -28,14 +28,12 @@ const SingIn = () => {
 
   return (
     <>
-      <Auth title="Sign In" handleClick={handleLogin} />
-      <div className="underLoginBox text-light">
-        Don’t have an account?{" "}
-        <Link className="text-light" to="/SingUp">
-          {" "}
-          Sing Up now{" "}
-        </Link>
-      </div>
+      <Auth
+        title="Sign In"
+        handleClick={handleLogin}
+        ask="Don’t have an account?"
+        link="SingUp"
+      />
     </>
   );
 };

@@ -45,7 +45,7 @@ export const contactsApi = createApi({
     }),
 
     getUser: builder.query<IUser[], number>({
-      query: (limit = 5) => `user?${limit && `limit=${limit}`}`,
+      query: (limit = 1) => `user?${limit && `limit=${limit}`}`,
       providesTags: (result) =>
         result
           ? [

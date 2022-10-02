@@ -143,10 +143,10 @@
   ],
   "user": [
     {
-      "id": 1,
+      "id": 0,
       "email": "erke_1999-23@mail.ru",
-      "token": "AOEOulY65_RZxrmPkrxMCBdbx9s6xEGzUAVQGb12mw2FnVqF1o…fWikQQQV4XAckzoJ-1zqmDfy1_VyNc547TBLXspB4Fy_dFemQ",
       "uid": "1eRcnuEn8aS97F24uiC5SiEoGuo2",
+      "token": "AOEOulbwN-XKROl4spFDHAL-3RtaB_5nYhVlHLNe8HMTzGhET5OXJstz12Jm6XsJ8hqo0YoyJ0YhdAh98DvhlYU9XRm37d0pCW2to5pMSvdCHp9nOSlnejXlii0qVEfxJBfTrAys0vlzreoPJ6--Z5eg-LNa5c4zrxsuGTj7UPp4Uc2MgiNj-PK6b-Ehz40oTUeMlGTHIxFBrLLQ95IDD56fdhZ-b1VfqEaB7vCaRJ-o801MYme3EiM",
       "isAuth": true
     }
   ]
