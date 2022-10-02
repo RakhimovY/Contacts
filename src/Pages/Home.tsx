@@ -8,6 +8,13 @@ export const Home: React.FC = () => {
   const { isAuth } = useAuth();
   console.log(isAuth);
 
+  //   return (
+  //     <div className="container mx-auto max-w-[760px] pt-5 text-light">
+  //       <MainContacts />
+  //     </div>
+  //   );
+  // };
+
   return isAuth ? (
     <div className="container mx-auto max-w-[760px] pt-5 text-light">
       <MainContacts />

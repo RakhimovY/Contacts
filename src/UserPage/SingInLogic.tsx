@@ -1,12 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Auth } from "../Pages/Auth";
-import { setUser } from "../Redux/Slice/userSlice";
-import { useAppDispatch } from "../Redux/CastomHooks";
+import { useEditUserMutation } from "../core/API";
 import { Link } from "react-router-dom";
 
 const SingIn = () => {
-  const dispatch = useAppDispatch();
+  const [userEditer] = useEditUserMutation();
   const push = useNavigate();
 
   const handleLogin = (email: string, password: string) => {
@@ -14,13 +13,14 @@ const SingIn = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
         console.log(user);
-        dispatch(
-          setUser({
-            email: user.email,
-            id: user.uid,
-            token: user.refreshToken,
-          })
-        );
+        userEditer({
+          id: 0,
+          email: user.email,
+          uid: user.uid,
+          token: user.refreshToken,
+          isAuth: true,
+        }).unwrap();
+
         push("/contacts");
       })
       .catch((e: Error) => alert(e.message));

@@ -1,10 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { IContact } from "../domain/IContact";
+import { IUser } from "../domain/IUser";
 
 export const contactsApi = createApi({
   reducerPath: "contactsApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3004/" }),
-  tagTypes: ["IContact"],
+  tagTypes: ["IContact", "IUser"],
   endpoints: (builder) => ({
     getContacts: builder.query<IContact[], number>({
       query: (limit = 60) => `contacts?${limit && `limit=${limit}`}`,
@@ -42,10 +43,32 @@ export const contactsApi = createApi({
       }),
       invalidatesTags: [{ type: "IContact", id: "LIST" }],
     }),
+
+    getUser: builder.query<IUser[], number>({
+      query: (limit = 5) => `user?${limit && `limit=${limit}`}`,
+      providesTags: (result) =>
+        result
+          ? [
+              ...result.map(({ id }) => ({ type: "IUser" as const, id })),
+              { type: "IUser", id: "LIST" },
+            ]
+          : [{ type: "IUser", id: "LIST" }],
+    }),
+
+    editUser: builder.mutation<IUser[], IUser>({
+      query: (body) => ({
+        url: `/user/${body.id}`,
+        method: "PUT",
+        body,
+      }),
+      invalidatesTags: ["IUser"],
+    }),
   }),
 });
 
 export const {
+  useGetUserQuery,
+  useEditUserMutation,
   useGetContactsQuery,
   useAddContactsMutation,
   useEditContactsMutation,

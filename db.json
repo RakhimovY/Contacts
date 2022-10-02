@@ -140,5 +140,14 @@
       "phone": "014-9659-787",
       "picture": "https://randomuser.me/api/portraits/men/28.jpg"
     }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "email": "erke_1999-23@mail.ru",
+      "token": "AOEOulY65_RZxrmPkrxMCBdbx9s6xEGzUAVQGb12mw2FnVqF1o…fWikQQQV4XAckzoJ-1zqmDfy1_VyNc547TBLXspB4Fy_dFemQ",
+      "uid": "1eRcnuEn8aS97F24uiC5SiEoGuo2",
+      "isAuth": true
+    }
   ]
 }
