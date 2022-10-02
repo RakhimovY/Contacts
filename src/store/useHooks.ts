@@ -8,12 +8,14 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 export const AUTH_KEY = 'auth'
 
-export function saveUserData(json: string){
+export function logIn(json: string){
   window.sessionStorage.setItem(AUTH_KEY, json);
+}
+export function logOut(){
+  window.sessionStorage.removeItem(AUTH_KEY);
 }
 
 export function useAuth() {
   const data = window.sessionStorage.getItem(AUTH_KEY) as any;
-  console.log(data)
   return { isAuth: !!data?.email};
 }

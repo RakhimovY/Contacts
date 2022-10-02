@@ -1,29 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MainContacts } from "../components/MainContacts";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { SignIn } from "./SignIn";
 import { useAuth } from "../store/useHooks";
 
 export const Home: React.FC = () => {
-   const isAuth = useAuth();
-  console.log(isAuth);
+  const navigate = useNavigate();
+  const {isAuth} = useAuth();
+  console.log('isAuth', isAuth);
 
-  //   return (
-  //     <div className="container mx-auto max-w-[760px] pt-5 text-light">
-  //       <MainContacts />
-  //     </div>
-  //   );
-  // };
-
-  return isAuth ? (
-    <div className="container mx-auto max-w-[760px] pt-5 text-light">
+  useEffect(() => {
+    if(!isAuth) navigate('/signin');
+  }, [isAuth, navigate])
+  
+  return <div className="container mx-auto max-w-[760px] pt-5 text-light">
       <MainContacts />
     </div>
-  ) : (
-    <div>
-      <Routes>
-        <Route path="/signin" element={<SignIn />} />
-      </Routes>
-    </div>
-  );
 };

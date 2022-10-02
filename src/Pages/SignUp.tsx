@@ -1,6 +1,6 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { saveUserData } from "../store/useHooks";
+import { logIn } from "../store/useHooks";
 import { Auth } from "./Auth";
 
 const SignUp = () => {
@@ -10,7 +10,7 @@ const SignUp = () => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
-        saveUserData(JSON.stringify(user))
+        logIn(JSON.stringify(user))
         push("/contacts");
       })
       .catch((e: Error) => alert(e.message));

@@ -1,5 +1,6 @@
-import { FC, useState } from "react";
-import { Link } from "react-router-dom";
+import { FC, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../store/useHooks";
 
 interface FormProps {
   title: string;
@@ -11,6 +12,12 @@ interface FormProps {
 const Auth: FC<FormProps> = ({ title, handleClick, ask, link }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const navigate = useNavigate();
+  const {isAuth} = useAuth();
+  useEffect(() => {
+    console.log(isAuth)
+    if(isAuth) navigate('/contacts');
+  }, [isAuth, navigate])
 
   const data = []
   const handle = (e: any) => {

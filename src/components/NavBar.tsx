@@ -1,6 +1,8 @@
 import "../css.css";
+import { logOut, useAuth } from "../store/useHooks";
 
 export function NavBar() {
+  const {isAuth} = useAuth();
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light fixed-top bg navbar-custom-bg-color ">
@@ -28,9 +30,15 @@ export function NavBar() {
                 </a>
               </li>
               <li className="nav-item ">
-                <a className="nav-link" href="/signin">
-                  Sign in
-                </a>
+                {!isAuth ? (
+                  <a className="nav-link" href="/signin">
+                    Sign in
+                  </a>
+                ) : (
+                  <button className="nav-link" onClick={logOut}>
+                    Sign out
+                  </button>
+                )}
               </li>
             </ul>
           </div>
