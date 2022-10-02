@@ -45,14 +45,8 @@ export const contactsApi = createApi({
     }),
 
     getUser: builder.query<IUser[], number>({
-      query: (limit = 1) => `user?${limit && `limit=${limit}`}`,
-      providesTags: (result) =>
-        result
-          ? [
-              ...result.map(({ id }) => ({ type: "IUser" as const, id })),
-              { type: "IUser", id: "LIST" },
-            ]
-          : [{ type: "IUser", id: "LIST" }],
+      query: (limit = 5) => `/user?${limit && `limit=${limit}`}`,
+      providesTags: [{ type: "IUser", id: "LIST" }],
     }),
 
     editUser: builder.mutation<IUser[], IUser>({
