@@ -14,7 +14,7 @@ const defaultContact: IContact = {
   name: "",
   email: "",
   phone: "",
-  picture: "",
+  picture: null,
 };
 
 const ContactAddDialog: FC<Props> = ({
@@ -42,11 +42,21 @@ const ContactAddDialog: FC<Props> = ({
   // const handlePictureChange = (files: FileList | null) => {
   //   const inputRef = useRef<HTMLInputElement | null>(null);
   // };
-  const handlePictureChange = () => {
-    setState((prevState) => ({
-      ...prevState,
-      picture: "xsgames.co/randomusers/avatar.php?g=female",
-    }));
+  const handlePictureChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files?.length ? e.target.files[0] : null;
+    if(selectedFile){
+      let reader = new FileReader();
+      reader.readAsDataURL(selectedFile);
+      reader.onload = function () {
+          setState((prevState) => ({
+            ...prevState,
+            picture: reader.result,
+          }));
+      };
+      reader.onerror = function (error) {
+          console.log('Error: ', error);
+      };
+    }
   };
 
   const handleSubmit = () => {

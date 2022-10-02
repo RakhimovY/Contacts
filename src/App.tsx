@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import "./css.css";
+import "./style.css";
 import { Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { SignIn } from "./pages/SignIn";

@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useGetContactsQuery, useAddContactsMutation } from "../store/contactsApi";
 import { IContact } from "../domain/IContact";
 import ListOfContacts from "./ListOfContacts";
@@ -11,7 +11,8 @@ export function MainContacts() {
     []
   );
 
-  const { data = [] } = useGetContactsQuery(100);
+  const { data } = useGetContactsQuery(100);
+  const items = data ?? [];
   const [addNewContact] = useAddContactsMutation();
 
   const handleSubmit = async (contact: IContact) => {
@@ -49,7 +50,7 @@ export function MainContacts() {
       />
 
       <section className=" grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10">
-        <ListOfContacts data={data} search={search} />
+        <ListOfContacts data={items} search={search} />
       </section>
     </div>
   );
