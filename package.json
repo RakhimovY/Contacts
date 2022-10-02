@@ -34,7 +34,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "concurrently \"npm run server\" \"npm start\"",
-    "server": "json-server --w db.json --p 3004"
+    "server": "json-server --watch db.json --p 3004"
   },
   "eslintConfig": {
     "extends": [

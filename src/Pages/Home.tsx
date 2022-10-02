@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { MainContacts } from "../components/MainContacts";
-import { Route, Routes, useNavigate } from "react-router-dom";
-import { SignIn } from "./SignIn";
+import {  useNavigate } from "react-router-dom";
 import { useAuth } from "../store/useHooks";
 
 export const Home: React.FC = () => {

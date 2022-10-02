@@ -1,22 +1,16 @@
 import { useNavigate } from "react-router-dom";
-import { AUTH_KEY, logIn } from "../store/useHooks";
-import { usersApi } from "../store/usersApi";
+import { useAppDispatch} from "../store/useHooks";
+import { getUser } from "../store/userSlice";
 import { Auth } from "./Auth";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export const SignIn = () => {
   const push = useNavigate();
-  
-  const handleLogin = async(email: string, password: string) => {
-    const auth = getAuth();
-    
-    signInWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-        logIn(JSON.stringify(user))
+  const dispatch = useAppDispatch();
 
-        push("/contacts");
-      })
-      .catch((e: Error) => alert(e.message));
+  const handleLogin = async(email: string, password: string) => {
+    await dispatch(getUser({email, password})).unwrap();
+
+    push('/contacts');
   };
 
   return (

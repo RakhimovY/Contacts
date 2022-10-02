@@ -1,11 +1,15 @@
 import "../css.css";
-import { logOut, useAuth } from "../store/useHooks";
+import { useAppDispatch, useAuth } from "../store/useHooks";
+import { logoutUser } from "../store/userSlice";
 
 export function NavBar() {
+  const dispatch = useAppDispatch();
+  const handleLogout = () => dispatch(logoutUser());
   const {isAuth} = useAuth();
+  console.log(isAuth);
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light fixed-top bg navbar-custom-bg-color ">
+      <nav className="navbar navbar-expand  -lg navbar-light fixed-top bg navbar-custom-bg-color ">
         <div className="container">
           <a className="navbar-brand" href="/contacts">
             YR
@@ -30,14 +34,14 @@ export function NavBar() {
                 </a>
               </li>
               <li className="nav-item ">
-                {!isAuth ? (
-                  <a className="nav-link" href="/signin">
-                    Sign in
-                  </a>
+                {isAuth ? (
+                   <button className="nav-link" onClick={handleLogout}>
+                   Sign out
+                 </button>
                 ) : (
-                  <button className="nav-link" onClick={logOut}>
-                    Sign out
-                  </button>
+                  <a className="nav-link" href="/signin">
+                  Sign in
+                </a>
                 )}
               </li>
             </ul>
