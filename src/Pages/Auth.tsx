@@ -13,11 +13,11 @@ const Auth: FC<FormProps> = ({ title, handleClick, ask, link }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const navigate = useNavigate();
-  const {isAuth} = useAuth();
-  
+  const { isAuth } = useAuth();
+
   useEffect(() => {
-    if(isAuth) navigate('/contacts');
-  }, [isAuth, navigate])
+    if (isAuth) navigate("/contacts");
+  }, [isAuth, navigate]);
 
   const handle = (e: any) => {
     e.preventDefault();

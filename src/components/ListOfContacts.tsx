@@ -6,7 +6,7 @@ import {
   useDeleteContactsMutation,
   useEditContactsMutation,
 } from "../store/contactsApi";
-import DeleteConfirmation from "./Confirm";
+import DeleteConfirmation from "./DeleteConfirmation";
 
 interface Props {
   data: IContact[];

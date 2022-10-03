@@ -3,22 +3,22 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import "./style.css";
 import { Route, Routes } from "react-router-dom";
-import { Home } from "./pages/Home";
-import { SignIn } from "./pages/SignIn";
+import { Home } from "./Pages/Home";
+import { SignIn } from "./Pages/SignIn";
 import { NavBar } from "./components/NavBar";
-import { SignUp } from "./pages/SignUp";
+import { SignUp } from "./Pages/SignUp";
 import { AUTH_KEY, useAppDispatch } from "./store/useHooks";
 import { loginUser } from "./store/userSlice";
 
 function App() {
   const dispatch = useAppDispatch();
-  
+
   useEffect(() => {
     const json = window.sessionStorage.getItem(AUTH_KEY);
-    if(json){
-      dispatch(loginUser(JSON.parse(json)))
+    if (json) {
+      dispatch(loginUser(JSON.parse(json)));
     }
-  }, [dispatch])
+  }, [dispatch]);
 
   return (
     <>
