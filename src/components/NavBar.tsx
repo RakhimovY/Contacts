@@ -1,18 +1,10 @@
-import { useState } from "react";
 import { useAppDispatch, useAuth } from "../store/useHooks";
 import { logoutUser } from "../store/userSlice";
-import { Alerter } from "./Alerter";
 
 export function NavBar() {
   const dispatch = useAppDispatch();
   const handleLogout = () => dispatch(logoutUser());
   const { isAuth } = useAuth();
-
-  const [alertState, setAlertState] = useState(false);
-
-  const handleAlertClick = () => {
-    setAlertState((state) => !state);
-  };
 
   return (
     <>
@@ -36,11 +28,7 @@ export function NavBar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item active">
-                <a
-                  className="nav-link"
-                  href="/contacts"
-                  onClick={!isAuth ? handleAlertClick : () => {}}
-                >
+                <a className="nav-link" href="/contacts">
                   Home
                 </a>
               </li>
@@ -59,11 +47,6 @@ export function NavBar() {
           </div>
         </div>
       </nav>
-      <Alerter
-        alertState={alertState}
-        handleAlertClick={handleAlertClick}
-        title={""}
-      />
     </>
   );
 }
